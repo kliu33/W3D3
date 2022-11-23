@@ -30,8 +30,19 @@ class Array
         #last = self[-1]
         #sets = self[0...-1]
         #sets << #last
-        
-        last = self[-1]
-        
+        #[1,2,3,4,5,6]
+        subsets = [[]]
+        temp_arr = []
+        self.each_with_index do |ele, i|
+            j = i
+            subsets << [self[i]]
+            while j < self.length
+                subsets << [self[i], self[j]] if i != j
+                subsets << temp_arr
+                j += 1
+            end
+            temp_arr = []
+        end
+        subsets
     end
 end
