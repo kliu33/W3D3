@@ -52,5 +52,22 @@ def bsearch(arr, target)
         return right_bsearch if right_bsearch == "not found"
         return right_bsearch + mid + 1
     end
+
+end
+def merge_sort(array)
+        if array.length <= 1
+            return array
+        end
+        mid = (array.length / 2).floor
+        left = array[0...mid]
+        right = array[mid..-1]
+
+
+        #if array.length == 2
+            left_ele = merge_sort(left)
+            right_ele = merge_sort(right)
+            return left_ele.concat(right_ele) if left_ele[0] < right_ele[0]
+            return right_ele.concat(left_ele) if right_ele[0] <= left_ele[0]
+        #end
 end
 
